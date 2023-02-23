@@ -1,4 +1,6 @@
-﻿namespace ConsoleAppProject.App02
+﻿using System
+
+namespace ConsoleAppProject.App02
 {
     /// <summary>
     /// Please describe the main features of this App
@@ -8,5 +10,33 @@
     /// </author>
     public class BMI
     {
+        public void App02()
+        {
+            Disclaimer();
+
+
+        }
+        public void Heading()
+        {
+            Console.WriteLine("                  APP 01                      ");
+            Console.WriteLine("                  ------                      ");
+            Console.WriteLine("Input your height and weight and the app outputs your BMI and comapres it " +
+                "to the WHO catogories");
+        }
+        public void Disclaimer()
+        {
+            Console.WriteLine("!! BMI IS OUTDATED AND DOES NOT DISPLAY AN ACCURATE MEASUREMENTS OF HEALTH !!");
+        }
+
+        public void calc()
+        {
+
+        }
+
+        public void OutputPrint()
+        {
+
+        }
+
     }
 }
