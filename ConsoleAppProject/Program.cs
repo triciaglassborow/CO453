@@ -27,12 +27,18 @@ namespace ConsoleAppProject
             Console.WriteLine("==============================================");
             Console.WriteLine();
 
-            DistanceConverter converter = new DistanceConverter();
-            converter.App01Run();
+            ///DistanceConverter converter = new DistanceConverter();
+            ////converter.App01Run();
 
             BMICalculator GetBMICalculator = new BMICalculator();
             GetBMICalculator.App02Run();
-            
+            GetBMICalculator.App02Run();
+            GetBMICalculator.App02Run();
+            GetBMICalculator.App02Run();
+            GetBMICalculator.App02Run();
+            GetBMICalculator.App02Run();
+
+
         }
     }
 }

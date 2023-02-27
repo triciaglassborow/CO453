@@ -10,16 +10,24 @@ namespace ConsoleAppProject.App02
     /// </author>
     public class BMICalculator
     {
+        string Input;
         public double Weight;
         public double Height;
-        public double Output;
+        public double BMICalc;
+        public string Output;
+        const double UNDERWEIGHT = 18.49;
+        const double NORMAL = 24.9;
+        const double OVERWEIGHT = 29.9;
+        const double OBESE_1 = 34.9;
+        const double OBESE_2 = 39.9;
 
         public void App02Run()
         {
             Heading();
             Disclaimer();
-            Input();
+            Select();
             Calc();
+            Compare();
             OutputPrint();
 
         }
@@ -35,22 +43,81 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("\n!! BMI IS OUTDATED AND DOES NOT DISPLAY AN ACCURATE MEASUREMENTS OF HEALTH !!");
         }
 
-        public void Input()
+        public void Select()
         {
-            Console.WriteLine("\nEnter your weight in kg:");
+            Console.WriteLine("\nChoose the how you want to input your measurements: ");
+            Console.WriteLine("1. Imperial");
+            Console.WriteLine("2. Metric");
+            Input = Console.ReadLine();
+            if (Input == "1")
+            {
+                InputImperial();
+            }
+            if (Input == "2")
+            {
+                InputMetric();
+            }
+
+        }
+        public void InputImperial()
+        {   
+            Console.WriteLine("Enter your height in inches:");
+            Height = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("\nEnter your weight in pounds:");
             Weight = Convert.ToDouble(Console.ReadLine());
+            Weight = Weight * 703;
+        }
+
+    public void InputMetric()
+        {   
             Console.WriteLine("Enter your height in metres:");
             Height = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("\nEnter your weight in kg:");
+            Weight = Convert.ToDouble(Console.ReadLine());
         }
 
         public void Calc()
         {
-            Output = Weight / (Height * Height);
+            BMICalc = Weight / (Height * Height);
+        }
+
+        public void Compare()
+        {
+
+            if (BMICalc <= OBESE_2)
+            {
+                Output = "Obese Class II";
+            }
+
+            if (BMICalc <= OBESE_1)
+            {
+                Output = "Obese Class I";
+            }
+
+            if (BMICalc <= OVERWEIGHT)
+            {
+                Output = "Overweight";
+            }
+
+            if (BMICalc <= NORMAL)
+            {
+                Output = "Normal";
+            }
+            
+            if (BMICalc <= UNDERWEIGHT)
+            {
+                Output = "Underweight";
+            }
+            
+            if (BMICalc > OBESE_2)
+            {
+                Output = "Obese Class III";
+            }
         }
 
         public void OutputPrint()
         {
-            Console.WriteLine(Output);
+            Console.WriteLine("Your BMI is "+ BMICalc+ ", which puts you in the WHO category "+ Output);
         }
 
     }
