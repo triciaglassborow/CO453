@@ -61,18 +61,18 @@ namespace ConsoleAppProject.App02
         }
         public void InputImperial()
         {   
-            Console.WriteLine("Enter your height in inches:");
+            Console.WriteLine("\nEnter your height in inches:");
             Height = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("\nEnter your weight in pounds:");
+            Console.WriteLine("Enter your weight in pounds:");
             Weight = Convert.ToDouble(Console.ReadLine());
             Weight = Weight * 703;
         }
 
     public void InputMetric()
         {   
-            Console.WriteLine("Enter your height in metres:");
+            Console.WriteLine("\nEnter your height in metres:");
             Height = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("\nEnter your weight in kg:");
+            Console.WriteLine("Enter your weight in kg:");
             Weight = Convert.ToDouble(Console.ReadLine());
         }
 
@@ -117,7 +117,7 @@ namespace ConsoleAppProject.App02
 
         public void OutputPrint()
         {
-            Console.WriteLine("Your BMI is "+ BMICalc+ ", which puts you in the WHO category "+ Output);
+            Console.WriteLine("\nYour BMI is "+ BMICalc+ ", which puts you in the WHO category "+ Output);
         }
 
     }
