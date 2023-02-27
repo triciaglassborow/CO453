@@ -19,7 +19,7 @@ namespace ConsoleAppProject.App01
 
 
         
-        public void App01()
+        public void App01Run()
         {
             Console.WriteLine("                  APP 01                      ");
             Console.WriteLine("                  ------                      ");
