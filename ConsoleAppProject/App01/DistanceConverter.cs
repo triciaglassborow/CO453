@@ -11,6 +11,8 @@ namespace ConsoleAppProject.App01
 
     public class DistanceConverter
     {
+        
+
         const double NUMBER_OF_FEET = 5280;
         const double NUMBER_OF_METRES = 1609.34;
 
@@ -31,10 +33,9 @@ namespace ConsoleAppProject.App01
 
         
         public void App01Run()
-        {
+        {  
             Heading();
             InputSelect();           
-            InUnits();
             OutputSelect();            
             Conversions();
             OutUnits();
@@ -56,6 +57,7 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("3. Metres");
             Console.WriteLine("\nEnter 1, 2 or 3: ");
             InputSelected  = Convert.ToInt32(Console.ReadLine());
+            InUnits();
         }
 
         public void OutputSelect()
@@ -152,7 +154,7 @@ namespace ConsoleAppProject.App01
                 }
             }
 
-            if (InputSelected == 2) //input = miles
+            else if (InputSelected == 2) //input = miles
             {
                 Console.WriteLine("\nEnter number of miles: ");
                 Input = Convert.ToDouble(Console.ReadLine());
@@ -166,7 +168,7 @@ namespace ConsoleAppProject.App01
                 }
             }
 
-            if (InputSelected == 3) //input = metres
+            else if (InputSelected == 3) //input = metres
             {
                 Console.WriteLine("\nEnter number of metres: ");
                 Input = Convert.ToDouble(Console.ReadLine());
@@ -178,7 +180,14 @@ namespace ConsoleAppProject.App01
                 {
                     InputUnits = " Metres";
                 }
-            }           
+            }
+
+            else
+            {
+                Console.WriteLine("\nPlease input the characters 1, 2 or 3 only");
+                Console.WriteLine("                            --------------");
+                InputSelect();
+            }
         }
 
         public void OutUnits()
