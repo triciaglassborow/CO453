@@ -36,8 +36,7 @@ namespace ConsoleAppProject.App01
         {  
             Heading();
             InputSelect();           
-            OutputSelect();            
-            Conversions();
+            OutputSelect();          
             OutUnits();
             OutputPrint();
         }
@@ -89,6 +88,9 @@ namespace ConsoleAppProject.App01
                 Console.WriteLine("\nEnter 1 or 2");
                 OutputSelected = Convert.ToInt32(Console.ReadLine());
             }
+            Conversions();
+
+
         }
 
         public void Conversions()
@@ -100,11 +102,17 @@ namespace ConsoleAppProject.App01
                     Output = Input / NUMBER_OF_FEET;
                     UniversalOutputSelected = 2;
                 }
-                if (OutputSelected == 2) //convert to metres
+                else if (OutputSelected == 2) //convert to metres
                 {
                     Output = Input / NUMBER_OF_FEET; //feet -> miles
                     Output = Output * NUMBER_OF_METRES; //miles -> metres
                     UniversalOutputSelected = 3;
+                }
+                else
+                {
+                    Console.WriteLine("\nPlease input the characters 1 or 2 only");
+                    Console.WriteLine("                            -----------");
+                    OutputSelect();
                 }
             }
             if (InputSelected == 2) //input = miles 
@@ -114,10 +122,16 @@ namespace ConsoleAppProject.App01
                     Output = Input * NUMBER_OF_FEET;
                     UniversalOutputSelected = 1;
                 }
-                if (OutputSelected == 2) //convert to metres
+                else if (OutputSelected == 2) //convert to metres
                 {
                     Output = Output * NUMBER_OF_METRES; //miles -> metres
                     UniversalOutputSelected = 3;    
+                }
+                else
+                {
+                    Console.WriteLine("\nPlease input the characters 1 or 2 only");
+                    Console.WriteLine("                            -----------");
+                    OutputSelect();
                 }
             }
 
@@ -129,10 +143,16 @@ namespace ConsoleAppProject.App01
                     Output = Input * NUMBER_OF_FEET;// miles -> feet
                     UniversalOutputSelected = 1;
                 }
-                if (OutputSelected == 2) //convert to miles
+                else if (OutputSelected == 2) //convert to miles
                 {
                     Output = Output / NUMBER_OF_METRES;
                     UniversalOutputSelected = 2;
+                }
+                else
+                {
+                    Console.WriteLine("\nPlease input the characters 1 or 2 only");
+                    Console.WriteLine("                            -----------");
+                    OutputSelect();
                 }
             }
         }
@@ -205,7 +225,7 @@ namespace ConsoleAppProject.App01
                 }
             }
 
-            if (UniversalOutputSelected == 2) //Output = miles
+            else if (UniversalOutputSelected == 2) //Output = miles
             {
                 if (Output == 1)
                 {
@@ -217,7 +237,7 @@ namespace ConsoleAppProject.App01
                 }
             }
 
-            if (UniversalOutputSelected == 3) //Output = metres
+            else if (UniversalOutputSelected == 3) //Output = metres
             {
                 if (Output == 1)
                 {
@@ -228,6 +248,8 @@ namespace ConsoleAppProject.App01
                    OutputUnits = " Metres";
                 }
             }
+
+            
         }
 
         ///terminal output
