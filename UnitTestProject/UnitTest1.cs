@@ -6,8 +6,17 @@ namespace UnitTestProject
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void FeetToMies()
         {
+            DistanceConverter converter = new DistanceConverter();
+            converter.InputSelected = 1; //feet
+            converter.UniversalOutputSelected = 2; //miles
+
+            converter.Input = 5280;
+
+            DistanceConverter.Conversions();
+
+            Assert.AreEqual(1);
         }
     }
 }
