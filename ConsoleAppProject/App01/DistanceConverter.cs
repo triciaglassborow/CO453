@@ -124,7 +124,7 @@ namespace ConsoleAppProject.App01
                 }
                 else if (OutputSelected == 2) //convert to metres
                 {
-                    Output = Output * NUMBER_OF_METRES; //miles -> metres
+                    Output = Input * NUMBER_OF_METRES; //miles -> metres
                     UniversalOutputSelected = 3;    
                 }
                 else
@@ -139,13 +139,13 @@ namespace ConsoleAppProject.App01
             {
                 if (OutputSelected == 1) //convert to feet
                 {
-                    Output = Output / NUMBER_OF_METRES; //metres -> miles
-                    Output = Input * NUMBER_OF_FEET;// miles -> feet
+                    Output = Input / NUMBER_OF_METRES; //metres -> miles
+                    Output = Output * NUMBER_OF_FEET;// miles -> feet
                     UniversalOutputSelected = 1;
                 }
                 else if (OutputSelected == 2) //convert to miles
                 {
-                    Output = Output / NUMBER_OF_METRES;
+                    Output = Input / NUMBER_OF_METRES;
                     UniversalOutputSelected = 2;
                 }
                 else
