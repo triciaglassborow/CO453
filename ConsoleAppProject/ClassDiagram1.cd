@@ -1,17 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ConsoleAppProject.App01.DistanceConverter">
-    <Position X="7.5" Y="7.25" Width="2" />
+    <Position X="0.5" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>IAAAAAAABACEEAAAAAAIAAQAEAQAAAgAIAQAACAQAAA=</HashCode>
       <FileName>App01\DistanceConverter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleAppProject.App02.BMICalculator">
-    <Position X="12" Y="7.25" Width="1.5" />
+    <Position X="2.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAgAABCAAAAABAEAIAAAQECAAAAAEAABAQCAAJAA=</HashCode>
       <FileName>App02\BMI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleAppProject.Program">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
