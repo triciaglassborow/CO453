@@ -53,16 +53,23 @@ namespace ConsoleAppProject.App02
             {
                 InputImperial();
             }
-            if (Input == "2")
+            else if (Input == "2")
             {
                 InputMetric();
+            }
+
+            else
+            {
+                Console.WriteLine("\nPlease input the characters 1 or 2 only");
+                Console.WriteLine("                            -----------");
+                Select();
             }
 
         }
         public void InputImperial()
         {   
             Console.WriteLine("\nEnter your height in inches:");
-            Height = Convert.ToDouble(Console.ReadLine());
+           Height = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter your weight in pounds:");
             Weight = Convert.ToDouble(Console.ReadLine());
             Weight = Weight * 703;

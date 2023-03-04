@@ -33,7 +33,7 @@ namespace ConsoleAppProject
 
             BMICalculator GetBMICalculator = new BMICalculator();
             GetBMICalculator.App02Run();
-            
+
 
 
         }
