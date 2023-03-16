@@ -1,22 +1,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ConsoleAppProject.App01;
+using ConsoleAppProject.App03;
 namespace UnitTestProject
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest03
     {
+        StudentGrades getStudentGrades = new StudentGrades();
         [TestMethod]
-        public void FeetToMies()
+        public void CalcGradeTest()
         {
-            DistanceConverter converter = new DistanceConverter();
-            converter.InputSelected = 1; //feet
-            converter.UniversalOutputSelected = 2; //miles
-
-            converter.Input = 5280;
-
-            DistanceConverter.Conversions();
-
-            Assert.AreEqual(1);
+            getStudentGrades.CalcGrades();  
         }
     }
 }
