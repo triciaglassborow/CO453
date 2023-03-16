@@ -22,17 +22,26 @@ namespace ConsoleAppProject.App03
         double mean;
         int total = 0;
 
-
+        //setting up lists
         public string[] students = { "amy", "matt", "ed", "george", "jj", "john", "ben", "emily", "megs", "lucy" };
         public int[] marks = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        public string[] grades = { "Invalid", "Invalid", "Invalid", "Invalid", "Invalid", "Invalid", "Invalid", "Invalid", "Invalid", "Invalid", };
-        
+        public string[] grades = { "Invalid", "Invalid", "Invalid", "Invalid", "Invalid", "Invalid",
+            "Invalid", "Invalid", "Invalid", "Invalid", };
+
+        //for number of students iwth each grade
+        int StatFail = 0;
+        int StatThird = 0;
+        int StatLower = 0;
+        int StatUpper = 0;
+        int StatFirst = 0;
+
         public void App03Run()
         {
             Header();
             Input();
             CalcGrades();
-            ClassProfile(); 
+            ClassProfile();
+            ClassStats();
             Output();
         }
 
@@ -46,6 +55,7 @@ namespace ConsoleAppProject.App03
 
         public void Input()
         {
+            //printing out each name on the class list and asking for their mark
             Console.WriteLine("Mark Input");
             Console.WriteLine("----------\n");
             for (int i = 0; i < students.Length; i++)
@@ -58,7 +68,8 @@ namespace ConsoleAppProject.App03
 
         public void CalcGrades()
         {
-            //comparing each mark with the grade criterira and 
+            //comparing each mark with the grade criteria and then assigning the grade to
+            //the correct posstion in the grade list
             for (int i = 0; i < students.Length; i++)
             {
                 if (marks[i] <= 39)
@@ -88,7 +99,7 @@ namespace ConsoleAppProject.App03
             }
         }
 
-        public void ClassProfile()
+        public void ClassStats()
         {
             //min mark. if mark entired is less then the current min, the
             //new min value is set to that of the mark it was just compared to
@@ -119,15 +130,45 @@ namespace ConsoleAppProject.App03
             mean = total / marks.Length;
         }
 
+        //number of students with each grade
+        public void ClassProfile()
+        {
+            for (int i = 0; i < grades.Length; i++)
+            {
+                if (grades[i] == "Fail")
+                {
+                    StatFail++;
+                }
+
+                if (grades[i] == "Third Class")
+                {
+                    StatThird++;
+                }
+
+                if (grades[i] == "Lower Second Class")
+                {
+                    StatLower++;
+                }
+
+                if (grades[i] == "Upper Second Class")
+                {
+                    StatUpper++;
+                }
+
+                if (grades[i] == "First Class")
+                {
+                    StatFirst++;
+                }
+            }
+        }
 
         public void Output()
         {
-            Console.WriteLine("Class list");
+            Console.WriteLine("\nClass list");
             Console.WriteLine("----------");
             for (int i = 0; i < students.Length; i++)
             {
                 Console.WriteLine(students[i] + ":\n mark: "+ marks[i] + "\n grade: "+ grades[i]);
-                
             }
 
             Console.WriteLine("\nClass Stats");
@@ -136,7 +177,14 @@ namespace ConsoleAppProject.App03
             Console.WriteLine("Max mark: " + max);
             Console.WriteLine("Mean mark: " + mean);
 
-
+            Console.WriteLine("\nClass Profile");
+            Console.WriteLine("-------------");
+            Console.WriteLine("Fail: "+ StatFail);
+            Console.WriteLine("Third Class: " + StatThird);
+            Console.WriteLine("Lower Second Class: " + StatLower);
+            Console.WriteLine("Upper Second Class: " + StatUpper);
+            Console.WriteLine("First Class: " + StatFirst);
+            
         }
 
     }

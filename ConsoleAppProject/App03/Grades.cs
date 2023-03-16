@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
 namespace ConsoleAppProject.App03
 {
     /// <summary>
@@ -9,6 +11,7 @@ namespace ConsoleAppProject.App03
     /// Grade D is Third Class   : 40 - 49
     /// Grade F is Fail          :  0 - 39
     /// </summary>
+    
     public enum Grades
     {
         [Display(Name = "Fail")]
@@ -27,4 +30,7 @@ namespace ConsoleAppProject.App03
         [Description("BSc(Hons) First Class")]
         A
     }
+
+    
 }
+
