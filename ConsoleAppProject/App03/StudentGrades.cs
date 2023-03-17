@@ -14,10 +14,10 @@ namespace ConsoleAppProject.App03
     public class StudentGrades
     {
 
-        int min = 100;
-        int max = 0;
-        double mean;
-        int total = 0;
+        public int min = 100;
+        public int max = 0;
+        public double mean;
+        public int total = 0;
 
         
         //setting up lists
