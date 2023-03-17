@@ -13,21 +13,20 @@ namespace ConsoleAppProject.App03
     /// </summary>
     public class StudentGrades
     {
-        const int NAME = 0;
-        const int MARK = 1;
-        const int GRADE = 2;
 
         int min = 100;
         int max = 0;
         double mean;
         int total = 0;
 
+        
         //setting up lists
         public string[] students = { "amy", "matt", "ed", "george", "jj", "john", "ben", "emily", "megs", "lucy" };
-        public int[] marks = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        public int[] marks = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; 
         public string[] grades = { "Invalid", "Invalid", "Invalid", "Invalid", "Invalid", "Invalid",
             "Invalid", "Invalid", "Invalid", "Invalid", };
 
+        
         //for number of students iwth each grade
         int StatFail = 0;
         int StatThird = 0;
