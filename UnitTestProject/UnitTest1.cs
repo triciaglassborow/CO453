@@ -34,7 +34,8 @@ namespace UnitTestProject
             Assert.AreEqual("First Class", getStudentGrades.grades[9]);
         }
 
-        public void ClassProfileTest()
+        [TestMethod]
+        public void ClassStatsTest()
         {
             getStudentGrades.marks[0] = 0;
             getStudentGrades.marks[1] = 39;
@@ -47,11 +48,35 @@ namespace UnitTestProject
             getStudentGrades.marks[8] = 70;
             getStudentGrades.marks[9] = 100;
 
-            getStudentGrades.ClassProfile();
+            getStudentGrades.ClassStats();
 
             Assert.AreEqual(0, getStudentGrades.min);
             Assert.AreEqual(100, getStudentGrades.max);
-            Assert.AreEqual(53.6, getStudentGrades.mean);
+            Assert.AreEqual(53, getStudentGrades.mean);
+        }
+
+        [TestMethod]
+        public void ClassProfilesTest()
+        {
+            getStudentGrades.marks[0] = 0;
+            getStudentGrades.marks[1] = 39;
+            getStudentGrades.marks[2] = 40;
+            getStudentGrades.marks[3] = 49;
+            getStudentGrades.marks[4] = 50;
+            getStudentGrades.marks[5] = 59;
+            getStudentGrades.marks[6] = 60;
+            getStudentGrades.marks[7] = 69;
+            getStudentGrades.marks[8] = 70;
+            getStudentGrades.marks[9] = 100;
+
+            getStudentGrades.CalcGrades();
+            getStudentGrades.ClassProfile();
+
+            Assert.AreEqual(2, getStudentGrades.StatFail);
+            Assert.AreEqual(2, getStudentGrades.StatThird);
+            Assert.AreEqual(2, getStudentGrades.StatLower);
+            Assert.AreEqual(2, getStudentGrades.StatUpper);
+            Assert.AreEqual(2, getStudentGrades.StatFirst);
         }
     }
 }

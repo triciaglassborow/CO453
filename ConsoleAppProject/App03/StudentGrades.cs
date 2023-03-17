@@ -16,7 +16,7 @@ namespace ConsoleAppProject.App03
 
         public int min = 100;
         public int max = 0;
-        public double mean;
+        public int mean;
         public int total = 0;
 
         
@@ -28,11 +28,11 @@ namespace ConsoleAppProject.App03
 
         
         //for number of students iwth each grade
-        int StatFail = 0;
-        int StatThird = 0;
-        int StatLower = 0;
-        int StatUpper = 0;
-        int StatFirst = 0;
+        public int StatFail = 0;
+        public int StatThird = 0;
+        public int StatLower = 0;
+        public int StatUpper = 0;
+        public int StatFirst = 0;
 
         public void App03Run()
         {
