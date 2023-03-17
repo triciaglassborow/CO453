@@ -21,5 +21,12 @@
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ConsoleAppProject.App03.StudentGrades">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQiAEgAAAABQAIAAEAIIAABAEAQABAAAAUAAAAQCAEA=</HashCode>
+      <FileName>App03\StudentGrades.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
