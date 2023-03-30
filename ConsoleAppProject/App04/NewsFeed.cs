@@ -6,67 +6,59 @@ namespace ConsoleAppProject.App04
 {
     public class NewsFeed
     {
-        public string Username;
-        public string Text;
-        public string Caption;
-        public string File;
-        public string Input;
+        private readonly List<MessagePost> messages;
+        private readonly List<PhotoPost> photos;
 
-        public string Test;
-       
-        public void App04Run()
+        ///<summary>
+        /// Construct an empty news feed.
+        ///</summary>
+        public NewsFeed()
         {
-            //header
-            Login();
-            Selection();
+            messages = new List<MessagePost>();
+            photos = new List<PhotoPost>();
         }
 
-        public void Login()
+
+        ///<summary>
+        /// Add a text post to the news feed.
+        /// 
+        /// @param text  The text post to be added.
+        ///</summary>
+        public void AddMessagePost(MessagePost message)
         {
-            Console.WriteLine("Enter Username:");
-            Username = Console.ReadLine();
+            messages.Add(message);
         }
 
-        public void Selection()
+        ///<summary>
+        /// Add a photo post to the news feed.
+        /// 
+        /// @param photo  The photo post to be added.
+        ///</summary>
+        public void AddPhotoPost(PhotoPost photo)
         {
-            Console.WriteLine("What do you want to do? \n1. Post a message \n2. Post a photo");
-            Input = Console.ReadLine();
+            photos.Add(photo);
+        }
 
-            if(Input == "1")
+        ///<summary>
+        /// Show the news feed. Currently: print the news feed details to the
+        /// terminal. (To do: replace this later with display in web browser.)
+        ///</summary>
+        public void Display()
+        {
+            // display all text posts
+            foreach (MessagePost message in messages)
             {
-                TextPost();
+                message.Display();
+                Console.WriteLine();   // empty line between posts
             }
 
-            if(Input == "2")
+            // display all photos
+            foreach (PhotoPost photo in photos)
             {
-                PhotoPost();
+                photo.Display();
+                Console.WriteLine();   // empty line between posts
             }
-                
         }
-
-        public void TextPost()
-        {
-            Test = "TEXTPOST";
-            Console.WriteLine("Enter message: ");
-            Text = Console.ReadLine();
-
-            MessagePost getMessagePost = new MessagePost(Username, Text);
-            getMessagePost.Display();
-        }
-
-        public void PhotoPost()
-        {
-            Test = "PHOTOPOST";
-            Console.WriteLine("Enter file name:");
-            File = Console.ReadLine();
-
-            Console.WriteLine("Enter caption:");
-            Caption = Console.ReadLine();
-
-            PhotoPost getPhotoPost = new PhotoPost(Username, File, Caption);
-            getPhotoPost.Display();
-        }
-        
     }
 
 }
