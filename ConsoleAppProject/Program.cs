@@ -69,7 +69,7 @@ namespace ConsoleAppProject
         public static void Selection()
         {
             Console.WriteLine("What do you want to do? \n1. Post a message \n2. Post a photo" +
-                "\n3. View Feed");
+                "\n3. View Feed \n4. Display by username");
             string Input = Console.ReadLine();
 
             if (Input == "1")
@@ -84,7 +84,12 @@ namespace ConsoleAppProject
 
             if (Input == "3")
             {
-                Feed();
+                DisplayFeed();
+            }
+
+            if (Input == "4")
+            {
+                DisplayByUsername();
             }
 
         }
@@ -118,13 +123,15 @@ namespace ConsoleAppProject
             Selection();
         }
 
-        public static void Feed()
+        public static void DisplayFeed()
         {
             newsFeed.Display();
         }
 
-        public static void DisplayByUsername(string name)
+        public static void DisplayByUsername()
         {
+            Console.WriteLine("What users profile would you like to see?");
+            string name = Console.ReadLine();
             foreach (MessagePost message in newsFeed.messages)
             {
                 if(name == message.Username)
@@ -134,6 +141,15 @@ namespace ConsoleAppProject
                 }
                 
             }
-        }
+
+            foreach (PhotoPost photo in newsFeed.photos)
+            {
+                if (name == photo.Username)
+                {
+                    photo.Display();
+                    Console.WriteLine();   // empty line between posts
+                }
+            }
+        } 
     }
 }
