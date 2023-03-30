@@ -45,7 +45,6 @@ namespace ConsoleAppProject.App04
             likes = 0;
             comments = new List<String>();
         }
-
         /// <summary>
         /// Record one more 'Like' indication from a user.
         /// </summary>

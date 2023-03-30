@@ -4,75 +4,69 @@ using System.Collections.Generic;
 
 namespace ConsoleAppProject.App04
 {
-    ///<summary>
-    /// The NewsFeed class stores news posts for the news feed in a social network 
-    /// application.
-    /// 
-    /// Display of the posts is currently simulated by printing the details to the
-    /// terminal. (Later, this should display in a browser.)
-    /// 
-    /// This version does not save the data to disk, and it does not provide any
-    /// search or ordering functions.
-    ///</summary>
-    ///<author>
-    ///  Michael Kölling and David J. Barnes
-    ///  version 0.1
-    ///</author> 
     public class NewsFeed
     {
-        private readonly List<MessagePost> messages;
-        private readonly List<PhotoPost> photos;
+        public string Username;
+        public string Text;
+        public string Caption;
+        public string File;
+        public string Input;
 
-        ///<summary>
-        /// Construct an empty news feed.
-        ///</summary>
-        public NewsFeed()
+        public string Test;
+       
+        public void App04Run()
         {
-            messages = new List<MessagePost>();
-            photos = new List<PhotoPost>();
+            //header
+            Login();
+            Selection();
         }
 
-
-        ///<summary>
-        /// Add a text post to the news feed.
-        /// 
-        /// @param text  The text post to be added.
-        ///</summary>
-        public void AddMessagePost(MessagePost message)
+        public void Login()
         {
-            messages.Add(message);
+            Console.WriteLine("Enter Username:");
+            Username = Console.ReadLine();
         }
 
-        ///<summary>
-        /// Add a photo post to the news feed.
-        /// 
-        /// @param photo  The photo post to be added.
-        ///</summary>
-        public void AddPhotoPost(PhotoPost photo)
+        public void Selection()
         {
-            photos.Add(photo);
-        }
+            Console.WriteLine("What do you want to do? \n1. Post a message \n2. Post a photo");
+            Input = Console.ReadLine();
 
-        ///<summary>
-        /// Show the news feed. Currently: print the news feed details to the
-        /// terminal. (To do: replace this later with display in web browser.)
-        ///</summary>
-        public void Display()
-        {
-            // display all text posts
-            foreach (MessagePost message in messages)
+            if(Input == "1")
             {
-                message.Display();
-                Console.WriteLine();   // empty line between posts
+                TextPost();
             }
 
-            // display all photos
-            foreach (PhotoPost photo in photos)
+            if(Input == "2")
             {
-                photo.Display();
-                Console.WriteLine();   // empty line between posts
+                PhotoPost();
             }
+                
         }
+
+        public void TextPost()
+        {
+            Test = "TEXTPOST";
+            Console.WriteLine("Enter message: ");
+            Text = Console.ReadLine();
+
+            MessagePost getMessagePost = new MessagePost(Username, Text);
+            getMessagePost.Display();
+        }
+
+        public void PhotoPost()
+        {
+            Test = "PHOTOPOST";
+            Console.WriteLine("Enter file name:");
+            File = Console.ReadLine();
+
+            Console.WriteLine("Enter caption:");
+            Caption = Console.ReadLine();
+
+            PhotoPost getPhotoPost = new PhotoPost(Username, File, Caption);
+            getPhotoPost.Display();
+        }
+        
     }
 
 }

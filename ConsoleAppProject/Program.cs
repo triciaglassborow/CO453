@@ -1,6 +1,7 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
 using ConsoleAppProject.Helpers;
 using System;
 
@@ -34,9 +35,11 @@ namespace ConsoleAppProject
             //BMICalculator GetBMICalculator = new BMICalculator();
             //GetBMICalculator.App02Run();
 
-            StudentGrades GetStudentGrades = new StudentGrades();
-            GetStudentGrades.App03Run();
+            //StudentGrades GetStudentGrades = new StudentGrades();
+            //GetStudentGrades.App03Run();
 
+            NewsFeed getNewsFeed = new NewsFeed();
+            getNewsFeed.App04Run();
 
 
         }
