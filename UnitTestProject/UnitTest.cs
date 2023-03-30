@@ -1,9 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
 namespace UnitTestProject
 {
     [TestClass]
-    public class UnitTest03
+    public class StudentGradesTest
     {
         StudentGrades getStudentGrades = new StudentGrades();
         [TestMethod]
@@ -77,6 +78,22 @@ namespace UnitTestProject
             Assert.AreEqual(2, getStudentGrades.StatLower);
             Assert.AreEqual(2, getStudentGrades.StatUpper);
             Assert.AreEqual(2, getStudentGrades.StatFirst);
+        }
+    }
+
+    [TestClass]
+    public class NewFeedTest
+    {
+        NewsFeed getNewsFeed = new NewsFeed();
+        [TestMethod]
+        public void SelectingTextPost()
+        {
+            getNewsFeed.Selection();
+            getNewsFeed.TextPost();
+
+            getNewsFeed.Input = "1";
+
+            Assert.AreEqual("TEXTPOST", getNewsFeed.Test);
         }
     }
 }
