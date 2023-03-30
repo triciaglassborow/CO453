@@ -6,8 +6,8 @@ namespace ConsoleAppProject.App04
 {
     public class NewsFeed
     {
-        private readonly List<MessagePost> messages;
-        private readonly List<PhotoPost> photos;
+        public readonly List<MessagePost> messages;
+        public readonly List<PhotoPost> photos;
 
         ///<summary>
         /// Construct an empty news feed.

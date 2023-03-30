@@ -21,7 +21,9 @@ namespace ConsoleAppProject
         public static string Text;
         public static string Caption;
         public static string File;
-        public static string Input;
+        
+        public static NewsFeed newsFeed;
+
 
         public static void Main(string[] args)
         {
@@ -44,7 +46,8 @@ namespace ConsoleAppProject
             //StudentGrades GetStudentGrades = new StudentGrades();
             //GetStudentGrades.App03Run();
 
-            
+            newsFeed = new NewsFeed();
+            App04Run();
 
         
         }
@@ -54,6 +57,7 @@ namespace ConsoleAppProject
             //header
             Login();
             Selection();
+            
         }
 
         public static void Login()
@@ -64,8 +68,9 @@ namespace ConsoleAppProject
 
         public static void Selection()
         {
-            Console.WriteLine("What do you want to do? \n1. Post a message \n2. Post a photo");
-            Input = Console.ReadLine();
+            Console.WriteLine("What do you want to do? \n1. Post a message \n2. Post a photo" +
+                "\n3. View Feed");
+            string Input = Console.ReadLine();
 
             if (Input == "1")
             {
@@ -75,6 +80,11 @@ namespace ConsoleAppProject
             if (Input == "2")
             {
                 PhotoPost();
+            }
+
+            if (Input == "3")
+            {
+                Feed();
             }
 
         }
@@ -87,6 +97,9 @@ namespace ConsoleAppProject
             MessagePost getMessagePost = new MessagePost(Username, Text);
             getMessagePost.Display();
 
+            newsFeed.AddMessagePost(getMessagePost);
+
+            Selection();
         }
 
         public static void PhotoPost()
@@ -99,6 +112,28 @@ namespace ConsoleAppProject
 
             PhotoPost getPhotoPost = new PhotoPost(Username, File, Caption);
             getPhotoPost.Display();
+
+            newsFeed.AddPhotoPost(getPhotoPost);
+
+            Selection();
+        }
+
+        public static void Feed()
+        {
+            newsFeed.Display();
+        }
+
+        public static void DisplayByUsername(string name)
+        {
+            foreach (MessagePost message in newsFeed.messages)
+            {
+                if(name == message.Username)
+                {
+                    message.Display();
+                    Console.WriteLine();   // empty line between posts
+                }
+                
+            }
         }
     }
 }
