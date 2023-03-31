@@ -92,6 +92,11 @@ namespace ConsoleAppProject
                 DisplayByUsername();
             }
 
+            if (Input == "5")
+            {
+
+            }
+
         }
 
         public static void TextPost()
@@ -138,8 +143,7 @@ namespace ConsoleAppProject
                 {
                     message.Display();
                     Console.WriteLine();   // empty line between posts
-                }
-                
+                }                
             }
 
             foreach (PhotoPost photo in newsFeed.photos)
@@ -151,5 +155,10 @@ namespace ConsoleAppProject
                 }
             }
         } 
+
+        public static void AddComment()
+        {
+
+        }
     }
 }
