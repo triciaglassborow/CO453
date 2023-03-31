@@ -56,6 +56,7 @@ namespace ConsoleAppProject
         {
             //header
             Login();
+            CreateFeed();
             Selection();
             
         }
@@ -66,10 +67,23 @@ namespace ConsoleAppProject
             Username = Console.ReadLine();
         }
 
+        public static void CreateFeed()
+        {
+            PhotoPost photoPost1 = new PhotoPost("Alex", "Family.jpeg", "Family Picture");
+            newsFeed.AddPhotoPost(photoPost1);
+            MessagePost messagePost1 = new MessagePost("Sam", "<3");
+            newsFeed.AddMessagePost(messagePost1);
+            MessagePost messagePost2 = new MessagePost("Lucy", "I like frogs");
+            newsFeed.AddMessagePost(messagePost2);
+            PhotoPost photoPost2 = new PhotoPost("Emily", "Sunset.jpeg", "Pretty");
+            newsFeed.AddPhotoPost(photoPost2);
+        }
+
         public static void Selection()
         {
             Console.WriteLine("What do you want to do? \n1. Post a message \n2. Post a photo" +
-                "\n3. View Feed \n4. Display by username");
+                "\n3. View Feed \n4. Display by username \n5. Add comment \n6. Remove post" +
+                "\n7. Like post \n8. Unlike post");
             string Input = Console.ReadLine();
 
             if (Input == "1")
@@ -94,7 +108,22 @@ namespace ConsoleAppProject
 
             if (Input == "5")
             {
+                AddComment();
+            }
 
+            if (Input == "6")
+            {
+                RemovePost();
+            }
+
+            if (Input == "7")
+            {
+                LikePost();
+            }
+
+            if (Input == "8")
+            {
+                UnlikePost();
             }
 
         }
@@ -131,6 +160,7 @@ namespace ConsoleAppProject
         public static void DisplayFeed()
         {
             newsFeed.Display();
+            Selection();
         }
 
         public static void DisplayByUsername()
@@ -154,11 +184,54 @@ namespace ConsoleAppProject
                     Console.WriteLine();   // empty line between posts
                 }
             }
+
+            Selection();
         } 
 
         public static void AddComment()
         {
+            newsFeed.Display();
+            Console.WriteLine("What post would you like to comment on?" +
+                "\nEnter post number:");
+            int postNum = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Add comment:");
+            string comment = Console.ReadLine();
+            newsFeed.CommentPost(postNum, comment);
+            Console.WriteLine("Comment Added");
+            Selection();
+        }
 
+        public static void RemovePost()
+        {
+            newsFeed.Display();
+            Console.WriteLine("What post would you like to remove?" +
+                "\nEnter post number:");
+            int postNum = Convert.ToInt32(Console.ReadLine());
+            newsFeed.DeletePost(postNum);
+            Console.WriteLine("Post Deleted");
+            Selection();
+        }
+
+        public static void LikePost()
+        {
+            newsFeed.Display();
+            Console.WriteLine("What post do you want to Like?" +
+                "\nEnter post number:");
+            int postNum = Convert.ToInt32(Console.ReadLine());
+            newsFeed.LikePost(postNum);
+            Console.WriteLine("Post Liked");
+            Selection();
+        }
+
+        public static void UnlikePost()
+        {
+            newsFeed.Display();
+            Console.WriteLine("What post do you want to Unlike?" +
+                "\nEnter post number:");
+            int postNum = Convert.ToInt32(Console.ReadLine());
+            newsFeed.UnlikePost(postNum);
+            Console.WriteLine("Like Removed");
+            Selection();
         }
     }
 }
